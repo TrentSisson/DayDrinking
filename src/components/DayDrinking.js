@@ -2,6 +2,7 @@ import React from "react"
 import { Route, Redirect } from "react-router-dom"
 import { Login } from "./auth/Login"
 import { Register } from "./auth/Register"
+import { ApplicationView} from "./ApplicationView"
 import "./DayDrinking.css"
 
 export const DayDrinking = () => (
@@ -11,7 +12,7 @@ export const DayDrinking = () => (
             if (localStorage.getItem("DayDrinker")) {
                 return (
                     <>
-                        {/* //Components that are rendered when the user is authenticated go inside this React fragment */}
+                       <Route render={props => <ApplicationView {...props} />} />
                     </>
                 )
             } else {
