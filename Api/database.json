@@ -10,15 +10,7 @@
       "password": "pikapika",
       "id": 2
     }
-  ],
-  "drinks": [
-    {
-      "id": 1,
-      "name": "",
-      "image": "",
-      "userId": ""
-    }
-  ],
+  ], 
   "notes": [
     {
       "id": 1,
