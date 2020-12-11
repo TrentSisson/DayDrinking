@@ -2,8 +2,6 @@ import React, { useRef } from "react"
 import "./Login.css"
 
 export const Register = (props) => {
-    const firstName = useRef()
-    const lastName = useRef()
     const email = useRef()
     const password = useRef()
     const verifyPassword = useRef()
@@ -11,8 +9,7 @@ export const Register = (props) => {
     const conflictDialog = useRef()
 
     const existingUserCheck = () => {
-        // If your json-server URL is different, please change it below!
-        return fetch(`http://localhost:8088/users?email=${email.current.value}`)
+        return fetch(`http://localhost:8088/user=${email.current.value}`)
             .then(_ => _.json())
             .then(user => !!user.length)
     }
@@ -24,8 +21,7 @@ export const Register = (props) => {
             existingUserCheck()
                 .then((userExists) => {
                     if (!userExists) {
-                        // If your json-server URL is different, please change it below!
-                        fetch("http://localhost:8088/users", {
+                        fetch("http://localhost:8088/user", {
                             method: "POST",
                             headers: {
                                 "Content-Type": "application/json"
@@ -33,14 +29,13 @@ export const Register = (props) => {
                             body: JSON.stringify({
                                 email: email.current.value,
                                 password: password.current.value,
-                                name: `${firstName.current.value} ${lastName.current.value}`
+                                
                             })
                         })
                             .then(_ => _.json())
                             .then(createdUser => {
                                 if (createdUser.hasOwnProperty("id")) {
-                                    // The user id is saved under the key app_user_id in local Storage. Change below if needed!
-                                    localStorage.setItem("app_user_id", createdUser.id)
+                                    localStorage.setItem("DayDrinker", createdUser.id)
                                     props.history.push("/")
                                 }
                             })
@@ -68,15 +63,7 @@ export const Register = (props) => {
             </dialog>
 
             <form className="form--login" onSubmit={handleRegister}>
-                <h1 className="h3 mb-3 font-weight-normal">Please Register for Application Name</h1>
-                <fieldset>
-                    <label htmlFor="firstName"> First Name </label>
-                    <input ref={firstName} type="text" name="firstName" className="form-control" placeholder="First name" required autoFocus />
-                </fieldset>
-                <fieldset>
-                    <label htmlFor="lastName"> Last Name </label>
-                    <input ref={lastName} type="text" name="lastName" className="form-control" placeholder="Last name" required />
-                </fieldset>
+                <h1 className="h3 mb-3 font-weight-normal">Register to start Day Drinking</h1>
                 <fieldset>
                     <label htmlFor="inputEmail"> Email address </label>
                     <input ref={email} type="email" name="email" className="form-control" placeholder="Email address" required />
