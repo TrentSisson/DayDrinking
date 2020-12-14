@@ -2,18 +2,17 @@ import React, { useContext, useEffect } from "react"
 import { DrinksContext } from "./DrinkProvider"
 import { Drink } from "./Drink"
 
-export const DrinkList = () => {
-    const { drinks, getDrinks } =useContext(DrinksContext)
+export const DrinkListM = () => {
+    const { drinks, getDrinksM } =useContext(DrinksContext)
 
     useEffect(() => {
         console.log("DrinkList")
-        getDrinks()
+        getDrinksM()
     },
     []
     )
 
-       useEffect(() => {
-           console.log(drinks)
+       useEffect(() => {   
        },
        [drinks]
        )
@@ -21,10 +20,9 @@ export const DrinkList = () => {
 return(
     <>
     <div className="drinks">
-           {drinks.map(d => <Drink key={d.name} value={d.id} drink={d}/> )}  
+           {drinks.map(d => <Drink key={d.id} drink={d}/> )}  
          
 
     </div>
     </>
 )}
-

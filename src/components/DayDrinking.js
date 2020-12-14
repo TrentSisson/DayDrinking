@@ -3,6 +3,7 @@ import { Route, Redirect } from "react-router-dom"
 import { Login } from "./auth/Login"
 import { Register } from "./auth/Register"
 import { ApplicationView} from "./ApplicationView"
+import { Nav } from "./Nav/Nav"
 import "./DayDrinking.css"
 
 export const DayDrinking = () => (
@@ -12,6 +13,7 @@ export const DayDrinking = () => (
             if (localStorage.getItem("DayDrinker")) {
                 return (
                     <>
+                       <Route render={props => <Nav {...props} />} />
                        <Route render={props => <ApplicationView {...props} />} />
                     </>
                 )
