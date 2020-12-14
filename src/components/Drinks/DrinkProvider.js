@@ -192,13 +192,23 @@ export const DrinkProvider = (props) => {
             setDrinks(objDrinks.drinks)
                 })
             }
+            const getDrinksById = (id) => {
+                return fetch (`https://www.thecocktaildb.com/api/json/v2/${key}/lookup.php?i=${id}`)
+                .then(res => res.json())
+                .then(objDrinks => {
+                    setDrinks(objDrinks.id)
+                })
+            }
 
 
     // console.log(setDrinks)
 
     return (
         <DrinksContext.Provider value={{
-            drinks, getDrinksA, getDrinksB, getDrinksC, getDrinksD, getDrinksE, getDrinksF, getDrinksG, getDrinksH, getDrinksI, getDrinksJ, getDrinksK, getDrinksL, getDrinksM, getDrinksN, getDrinksO, getDrinksP, getDrinksQ, getDrinksR, getDrinksS, getDrinksT, getDrinksU, getDrinksV, getDrinksW, getDrinksX, getDrinksY, getDrinksZ
+            drinks, getDrinksA, getDrinksB, getDrinksC, getDrinksD, getDrinksE, getDrinksF, getDrinksG, getDrinksH,
+             getDrinksI, getDrinksJ, getDrinksK, getDrinksL, getDrinksM, getDrinksN, getDrinksO, getDrinksP,
+              getDrinksQ, getDrinksR, getDrinksS, getDrinksT, getDrinksU, getDrinksV, getDrinksW, getDrinksX, getDrinksY, getDrinksZ,
+              getDrinksById
         }}>
             {props.children}
         </DrinksContext.Provider>

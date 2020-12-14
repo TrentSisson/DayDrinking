@@ -1,13 +1,13 @@
 import React, { useContext, useEffect } from "react"
-import { DrinksContext } from "./DrinkProvider"
-import { Drink } from "./Drink"
+import { DrinksContext } from "../DrinkProvider"
+import { Drink } from "../Drink"
 
-export const DrinkListK = () => {
-    const { drinks, getDrinksK } =useContext(DrinksContext)
+export const DrinkListP = () => {
+    const { drinks, getDrinksP } =useContext(DrinksContext)
 
     useEffect(() => {
         console.log("DrinkList")
-        getDrinksK()
+        getDrinksP()
     },
     []
     )
