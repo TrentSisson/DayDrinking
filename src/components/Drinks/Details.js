@@ -1,14 +1,38 @@
-import React from "react"
-// import { DrinkContext } from "./DrinkProvider"
+import React, { useContext, useEffect, useState } from "react"
+import { DrinksContext } from "./DrinkProvider"
 import "./Drink.css"
 
+export const Drinks = () => {
+    const {getDrinksById, drinks} = useContext(DrinksContext)
+    
+    useEffect(() => {
+        getDrinksById(drinks.idDrink)
+    }, [])
+    
+    useEffect(() => {
+        
+        console.log(drinks)
+    },
+    [drinks]
+    )
+   const drinkss = drinks.filter(element => {
+        console.log(element)
+        return(
+            element.idDrink
+        )
+   })
 
 
-export const Drink = ({drink}) => {
+    
+
+     
+    
     return(
         <section className="drink">
-            <img src={drink.strDrinkThumb} className = "drink__image" width = "100px" height = "100px"/>
-            <h3 className="drink_name">{drink.strDrink}</h3>
+            
+           
+           <h3 className="drink_name">{drinkss}</h3>
+        )
         </section>
     )
 

@@ -192,12 +192,12 @@ export const DrinkProvider = (props) => {
             setDrinks(objDrinks.drinks)
                 })
             }
-            const getDrinksById = (id) => {
-                return fetch (`https://www.thecocktaildb.com/api/json/v2/${key}/lookup.php?i=${id}`)
+            const getDrinksById = (idDrink) => {
+                return fetch (`https://www.thecocktaildb.com/api/json/v2/${key}/lookup.php?i=${idDrink}`)
                 .then(res => res.json())
                 .then(objDrinks => {
-                    setDrinks(objDrinks.id)
-                })
+                    setDrinks(objDrinks.drinks)
+                        })
             }
 
 
