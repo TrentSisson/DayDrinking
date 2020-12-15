@@ -8,6 +8,7 @@ export const DrinksContext = React.createContext()
 
 export const DrinkProvider = (props) => {
     const [drinks, setDrinks] = useState([])
+    const [drink, setDrink] = useState([])
 
     
     const getDrinksA = () => {
@@ -195,8 +196,8 @@ export const DrinkProvider = (props) => {
             const getDrinksById = (idDrink) => {
                 return fetch (`https://www.thecocktaildb.com/api/json/v2/${key}/lookup.php?i=${idDrink}`)
                 .then(res => res.json())
-                .then(objDrinks => {
-                    setDrinks(objDrinks.drinks)
+                .then(objDrink => {
+                    setDrink(objDrink.drinks[0])
                         })
             }
 
@@ -205,6 +206,7 @@ export const DrinkProvider = (props) => {
 
     return (
         <DrinksContext.Provider value={{
+            drink,
             drinks, getDrinksA, getDrinksB, getDrinksC, getDrinksD, getDrinksE, getDrinksF, getDrinksG, getDrinksH,
              getDrinksI, getDrinksJ, getDrinksK, getDrinksL, getDrinksM, getDrinksN, getDrinksO, getDrinksP,
               getDrinksQ, getDrinksR, getDrinksS, getDrinksT, getDrinksU, getDrinksV, getDrinksW, getDrinksX, getDrinksY, getDrinksZ,

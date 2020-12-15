@@ -27,7 +27,7 @@ import { DrinkListX } from "./Drinks/DrinkLists/DrinkListX"
 import { DrinkListY } from "./Drinks/DrinkLists/DrinkListY"
 import { DrinkListZ } from "./Drinks/DrinkLists/DrinkListZ"
 import { DrinkProvider } from "./Drinks/DrinkProvider"
-import { Drinks } from "./Drinks/Details"
+import { Details } from "./Drinks/Details"
 
 
 
@@ -114,7 +114,7 @@ export const ApplicationView =(props) =>{
                 <DrinkListZ/>
                 </Route>
             <Route exact path ="/:drinksId(\d+)"render = {
-                props =><Drinks {...props}/>
+                props =><Details {...props}/>
             }/>
         </DrinkProvider>
         </>
