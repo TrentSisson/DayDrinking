@@ -1,14 +1,14 @@
 import React, { useContext, useEffect } from "react"
-import { DrinksContext } from "../DrinkProvider"
-import { Drink } from "../Drink"
+import { favDrinksContext } from "./FavDrinksProvider"
+import { Drinks } from "./FavDrink"
 
 
-export const favDrinksList = () => {
-    const { favDrinks, getfavDrinks } =useContext(favDrinksContext)
+export const FavDrinksList = () => {
+    const { favDrink, getFavDrinks } =useContext(favDrinksContext)
 
     useEffect(() => {
-        console.log(favDrinks)
-        getfavDrinks()
+        console.log(favDrink)
+        getFavDrinks()
     },
     []
     )
@@ -16,8 +16,9 @@ export const favDrinksList = () => {
     
 return(
     <>
-    <div className="drinks">
-           {favDrinks.map(d => <Drink key={d.id} drink={d}/> )}  
+    <div className="favDrinks">
+        <h2>Favorite Drinks</h2>
+           {favDrink.map(d => <Drinks key={d.id} drink={d}/> )}  
          
 
     </div>

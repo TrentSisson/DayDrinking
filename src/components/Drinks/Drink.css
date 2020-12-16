@@ -1,4 +1,10 @@
 .drinks{
     display: flex;
     flex-wrap: wrap;
+    flex: 3;
+    text-align: center;
+}
+.drink_name {
+    width: 175px;
+    font-size: small;
 }

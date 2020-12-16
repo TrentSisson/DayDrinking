@@ -6,7 +6,7 @@ import React, { useState, } from "react"
 
 export const favDrinksContext = React.createContext()
 
-export const DrinkProvider = (props) => {
+export const FavDrinkProvider = (props) => {
     const [favDrink, setFavDrink] = useState([])
 
     
