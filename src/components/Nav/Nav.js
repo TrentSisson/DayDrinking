@@ -6,82 +6,82 @@ export const Nav = (props) => {
     return (
         <ul className="nav">
             <li className="nav__item active">
-                <Link className="nav__link" to="/">A</Link>
+                <Link className="nav__link" to="/drink/A">A</Link>
             </li>
             <li className="nav__item active">
-                <Link className="nav__link" to="/B">B</Link>
+                <Link className="nav__link" to="/drink/B">B</Link>
             </li>
             <li className="nav__item active">
-                <Link className="nav__link" to="/C">C</Link>
+                <Link className="nav__link" to="/drink/C">C</Link>
             </li>
             <li className="nav__item active">
-                <Link className="nav__link" to="/D">D</Link>
+                <Link className="nav__link" to="/drink/D">D</Link>
             </li>
             <li className="nav__item active">
-                <Link className="nav__link" to="/E">E</Link>
+                <Link className="nav__link" to="/drink/E">E</Link>
             </li>
             <li className="nav__item active">
-                <Link className="nav__link" to="/F">F</Link>
+                <Link className="nav__link" to="/drink/F">F</Link>
             </li>
             <li className="nav__item active">
-                <Link className="nav__link" to="/G">G</Link>
+                <Link className="nav__link" to="/drink/G">G</Link>
             </li>
             <li className="nav__item active">
-                <Link className="nav__link" to="/H">H</Link>
+                <Link className="nav__link" to="/drink/H">H</Link>
             </li>
             <li className="nav__item active">
-                <Link className="nav__link" to="/I">I</Link>
+                <Link className="nav__link" to="/drink/I">I</Link>
             </li>
             <li className="nav__item active">
-                <Link className="nav__link" to="/J">J</Link>
+                <Link className="nav__link" to="/drink/J">J</Link>
             </li>
             <li className="nav__item active">
-                <Link className="nav__link" to="/K">K</Link>
+                <Link className="nav__link" to="/drink/K">K</Link>
             </li>
             <li className="nav__item active">
-                <Link className="nav__link" to="/L">L</Link>
+                <Link className="nav__link" to="/drink/L">L</Link>
             </li>
             <li className="nav__item active">
-                <Link className="nav__link" to="/M">M</Link>
+                <Link className="nav__link" to="/drink/M">M</Link>
             </li>
             <li className="nav__item active">
-                <Link className="nav__link" to="/N">N</Link>
+                <Link className="nav__link" to="/drink/N">N</Link>
             </li>
             <li className="nav__item active">
-                <Link className="nav__link" to="/O">0</Link>
+                <Link className="nav__link" to="/drink/O">0</Link>
             </li>
             <li className="nav__item active">
-                <Link className="nav__link" to="/P">P</Link>
+                <Link className="nav__link" to="/drink/P">P</Link>
             </li>
             <li className="nav__item active">
-                <Link className="nav__link" to="/Q">Q</Link>
+                <Link className="nav__link" to="/drink/Q">Q</Link>
             </li>
             <li className="nav__item active">
-                <Link className="nav__link" to="/R">R</Link>
+                <Link className="nav__link" to="/drink/R">R</Link>
             </li>
             <li className="nav__item active">
-                <Link className="nav__link" to="/S">S</Link>
+                <Link className="nav__link" to="/drink/S">S</Link>
             </li>
             <li className="nav__item active">
-                <Link className="nav__link" to="/T">T</Link>
+                <Link className="nav__link" to="/drink/T">T</Link>
             </li>
             <li className="nav__item active">
-                <Link className="nav__link" to="/U">U</Link>
+                <Link className="nav__link" to="/drink/U">U</Link>
             </li>
             <li className="nav__item active">
-                <Link className="nav__link" to="/V">V</Link>
+                <Link className="nav__link" to="/drink/V">V</Link>
             </li>
             <li className="nav__item active">
-                <Link className="nav__link" to="/W">W</Link>
+                <Link className="nav__link" to="/drink/W">W</Link>
             </li>
             <li className="nav__item active">
-                <Link className="nav__link" to="/X">X</Link>
+                <Link className="nav__link" to="/drink/X">X</Link>
             </li>
             <li className="nav__item active">
-                <Link className="nav__link" to="/Y">Y</Link>
+                <Link className="nav__link" to="/drink/Y">Y</Link>
             </li>
             <li className="nav__item active">
-                <Link className="nav__link" to="/Z">Z</Link>
+                <Link className="nav__link" to="/drink/Z">Z</Link>
             </li>
         </ul>
     )
