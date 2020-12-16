@@ -35,3 +35,7 @@ strong {
 address {
   margin: 0 0 1.5em;
 }
+.DrinksContainer {
+  display: flex;
+  flex-wrap: wrap
+}
