@@ -11,7 +11,8 @@ export const FavDrinkProvider = (props) => {
     const [FavoriteDrink, setFavoriteDrink] = useState([])
 
     const getFavDrinks = () => {
-        return fetch(`http://localhost:8088/drinks/?userId=`)
+        const activeUser = parseInt(localStorage.getItem("DayDrinker"))
+        return fetch(`http://localhost:8088/drinks?userId=${activeUser}`)
             .then(res => res.json())
             .then(setFavDrink)
 

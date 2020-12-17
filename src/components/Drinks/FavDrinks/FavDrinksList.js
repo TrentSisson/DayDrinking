@@ -7,16 +7,16 @@ export const FavDrinksList = (props) => {
     const { favDrink, getFavDrinks } =useContext(favDrinksContext)
     const {getFavDrinksById, FavoriteDrink} = useContext(favDrinksContext)
         
-        useEffect(() => {
+        useEffect(() => {getFavDrinks()
             
-            getFavDrinksById((favDrink.userId))
+           
     
         }, [])
 
     
 
     
-     if (localStorage.getItem("DayDrinker")===favDrink.userId){
+     
     return(
         <>
     <div className="favDrinks">
@@ -27,11 +27,4 @@ export const FavDrinksList = (props) => {
     </div>
     </>
 )}
- else {
-     return(
-    <h2>Favorite Drinks</h2>
-   )}
-
-
- }    
-
+ 
