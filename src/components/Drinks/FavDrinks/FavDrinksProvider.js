@@ -9,6 +9,7 @@ export const favDrinksContext = React.createContext()
 export const FavDrinkProvider = (props) => {
     const [favDrink, setFavDrink] = useState([])
     const [FavoriteDrink, setFavoriteDrink] = useState([])
+    const [notes, setNotes] = useState([])
 
     const getFavDrinks = () => {
         const activeUser = parseInt(localStorage.getItem("DayDrinker"))
@@ -33,16 +34,35 @@ export const FavDrinkProvider = (props) => {
             },
             body: JSON.stringify(drink)
         })
-         .then(getFavDrinks)
+            .then(getFavDrinks)
     }
+    const addNote = (note) => {
+        return fetch("http://localhost:8088/notes", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+
+            },
+            body: JSON.stringify(note)
+        })
+
+    }
+
+    const getNotesById = () => {
+        return fetch("http://localhost:8088/notes")
+        .then(res => res.json())
+        .then(setNotes)
+    }
+
+
 
 
 
 
     return (
         <favDrinksContext.Provider value={{
-            favDrink, FavoriteDrink, getFavDrinks,
-            getFavDrinksById, addFavDrink
+            favDrink, FavoriteDrink,notes, getFavDrinks,
+            getFavDrinksById, addFavDrink, addNote, getNotesById
         }}>
             {props.children}
         </favDrinksContext.Provider>

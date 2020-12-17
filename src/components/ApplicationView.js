@@ -15,12 +15,19 @@ export const ApplicationView =(props) =>{
         <DrinkProvider>
             <FavDrinkProvider>
 
+                <Route exact path ="/" render ={
+                 props =><>
+                  <DrinkList startingDrinkLetter ="A"{...props}/>
+                 <FavDrinksList {...props}/>
+                 </>
+             }/>
             <Route path ="/drink/:letter" render ={
                 props =><>
                  <DrinkList startingDrinkLetter = {props.match.params.letter}{...props}/>
                 <FavDrinksList {...props}/>
                 </>
             }/>
+
 
             <Route path ="/drinks/:drinksId(\d+)"render = {
                 props =><FavDetails {...props}/>
