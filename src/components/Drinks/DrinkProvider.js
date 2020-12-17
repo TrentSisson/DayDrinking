@@ -27,7 +27,9 @@ export const DrinkProvider = (props) => {
                         })
             }
 
+            
 
+           
     // console.log(setDrinks)
 
     return (
@@ -35,6 +37,7 @@ export const DrinkProvider = (props) => {
             drink,
             drinks, 
               getDrinksById, getDrinks
+              
         }}>
             {props.children}
         </DrinksContext.Provider>
