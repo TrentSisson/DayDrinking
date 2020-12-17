@@ -1,15 +1,20 @@
-import React, { useContext, useEffect, useState } from "react"
+import React, { useContext, useEffect, useRef, useState } from "react"
 import { favDrinksContext } from "./FavDrinksProvider"
+import { Notes } from "./Note"
 import "./FavDrink.css"
 
 export const FavDetails = (props) => {
-    const { getFavDrinksById, FavoriteDrink } = useContext(favDrinksContext)
+    const { getFavDrinksById, FavoriteDrink, addNote, getNotesById, notes } = useContext(favDrinksContext)
 
     useEffect(() => {
         getFavDrinksById((props.match.params.drinksId))
 
     }, [])
-
+    
+    useEffect(() =>{
+        getNotesById()
+        
+    },[])
     //    const drinkss = drinks.filter(element => {
     //         console.log(element)
     //         return(
@@ -17,9 +22,16 @@ export const FavDetails = (props) => {
     //         )
     //    })
 
+const text = useRef(null)
+const drinkId = parseInt(props.match.params.drinksId)
+const saveNote = () => {
+    addNote({
+        text:text.current.value,
+        drinkId: drinkId
+    })
+}
 
-
-
+console.log(notes)
 
 
     return (
@@ -46,8 +58,18 @@ export const FavDetails = (props) => {
             <div className="FavoriteDrink_ingredients">{FavoriteDrink.strIngredient15}</div>
             <h4>Instructions</h4>
             <div className="FavoriteDrink_instructions">{FavoriteDrink.strInstructions}</div>
-
-        </section>
+            <div className="note">{notes.map(n => {
+                if (n.drinkId === drinkId){
+                    return <Notes key={n.drinkId} note={n} />
+                    
+                }
+                }) }</div>
+                    <input className="favoriteDrinkNotes" type= "text" placeholder= "Add Notes" ref={text} ></input>
+                    <button type="submit" onClick={evt =>{
+                        evt.preventDefault()
+                        saveNote()
+                    }}>add</button>
+                    </section>
     )
 
 }
