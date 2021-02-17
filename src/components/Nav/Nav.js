@@ -4,7 +4,17 @@ import "./Nav.css"
 
 export const Nav = (props) => {
     return (
+    
         <ul className="nav">
+                  <button type="button" 
+                     onClick={() => {
+                         (localStorage.clear())
+                         props.history.push("/login")
+                        }
+                    }>LogOut
+                    </button>
+
+             
             <li className="nav__item active">
                 <Link className="nav__link" to="/drink/A">A</Link>
             </li>
