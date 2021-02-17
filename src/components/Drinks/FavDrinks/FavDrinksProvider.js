@@ -1,4 +1,5 @@
 import React, { useState, } from "react"
+import {key} from "../../ApiKey"
 
 
 
@@ -10,6 +11,7 @@ export const FavDrinkProvider = (props) => {
     const [favDrink, setFavDrink] = useState([])
     const [FavoriteDrink, setFavoriteDrink] = useState([])
     const [notes, setNotes] = useState([])
+    
 
     const getFavDrinks = () => {
         const activeUser = parseInt(localStorage.getItem("DayDrinker"))
@@ -45,15 +47,52 @@ export const FavDrinkProvider = (props) => {
             },
             body: JSON.stringify(note)
         })
-
+        .then(getNotesById)
     }
 
     const getNotesById = () => {
         return fetch("http://localhost:8088/notes")
-        .then(res => res.json())
-        .then(setNotes)
+            .then(res => res.json())
+            .then(setNotes)
     }
 
+    const deleteFavDrink = (id) => {
+        return fetch(`http://localhost:8088/drinks/${id}`, {
+            method: "DELETE",
+        })
+        .then(getFavDrinks)
+    }
+    
+/* patch method allows for us to grab a property and change its value when the function is invoked.*/
+    const liked = (noteId, boolean) =>{
+        return fetch(`http://localhost:8088/notes/${noteId}`, {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/Json; charset=UTF-8"
+            },
+            body: JSON.stringify({
+                liked: boolean
+            })
+        })
+    
+    .then(response => response.json())
+    .then(getNotesById)
+    
+    }
+    // const disliked = noteId =>{
+    //     return fetch(`http://localhost:8088/notes/${noteId}`, {
+    //         method: "PATCH",
+    //         headers: {
+    //             "Content-Type": "application/Json; charset=UTF-8"
+    //         },
+    //         body: JSON.stringify({
+    //             liked: false
+    //         })
+    //     })
+    
+    // .then(response => response.json())
+    // .then(json => console.log(json))
+    // }
 
 
 
@@ -61,8 +100,8 @@ export const FavDrinkProvider = (props) => {
 
     return (
         <favDrinksContext.Provider value={{
-            favDrink, FavoriteDrink,notes, getFavDrinks,
-            getFavDrinksById, addFavDrink, addNote, getNotesById
+            favDrink, FavoriteDrink, notes, liked, getFavDrinks,
+            getFavDrinksById, addFavDrink, addNote, getNotesById, deleteFavDrink
         }}>
             {props.children}
         </favDrinksContext.Provider>
